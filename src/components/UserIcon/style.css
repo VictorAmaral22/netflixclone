@@ -15,3 +15,16 @@
     width: 55px;
     border-radius: 50px;
 }
+
+@media (max-width: 760px) {
+    .header--user {
+        margin-right: -3px;
+    }
+    .header--userimg {
+        height: 50px;
+        width: 50px;
+    }
+    .header--username {
+        display: none;
+    }
+}

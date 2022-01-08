@@ -61,7 +61,18 @@ export default () => {
       </section>
 
       {/* Rodapé */}
-
+      <footer>
+        Feito por Victor Amaral, baseado no vídeo <a href='https://www.youtube.com/watch?v=tBweoUiMsDg&t=8791s'><i>🔥 Clone do NETFLIX em REACTJS para Iniciantes</i></a>
+        <br />
+        Dados pegos do site <a href='https://www.themoviedb.org/'>Themoviedb.org</a>
+        <br />
+        Todos os direitos de imagem para Netflix.
+      </footer>
+      {movieList >= 0 && 
+        <div className='loading'>
+          <img src='https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif' alt='Carregando' />
+        </div>      
+      }
     </div>
   )
 }
