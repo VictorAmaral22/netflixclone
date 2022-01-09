@@ -55,7 +55,7 @@ export default () => {
       }
 
       {/* Listas ... */}
-      <section className='lists'>
+      <section className='lists' style={{marginTop: -150+(window.innerWidth/30)}}>
         {movieList.map((item, key) => (
           <MovieRow key={key} title={item.title} items={item.items} />
         ))}
