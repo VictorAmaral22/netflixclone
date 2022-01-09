@@ -22,9 +22,10 @@ export default () => {
       let random = Math.floor(Math.random() * (originals[0].items.results.length -1));
       let chosen = originals[0].items.results[random];
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
+      console.log(chosenInfo);
       setFeaturedData(chosenInfo);
     }
-
+    // witcher 71912
     loadAll();
   }, []);
 
