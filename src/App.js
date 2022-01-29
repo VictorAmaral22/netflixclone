@@ -4,13 +4,15 @@ import './App.css'
 import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
+import BigMovie from './components/BigMovie';
 
 export default () => {
 
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
-
+  const [showingBigMovie, setShowingBigMovie] = useState(false);
+  const [bigMovieData, setBigMovieData] = useState(null);
   useEffect(()=>{
     const loadAll = async () => {
       // Lista completa
@@ -22,10 +24,8 @@ export default () => {
       let random = Math.floor(Math.random() * (originals[0].items.results.length -1));
       let chosen = originals[0].items.results[random];
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
-      console.log(chosenInfo);
       setFeaturedData(chosenInfo);
     }
-    // witcher 71912
     loadAll();
   }, []);
 
@@ -47,7 +47,7 @@ export default () => {
   return (
     <div className='page'>
       {/* Header */}
-      <Header black={blackHeader} />
+      <Header black={(blackHeader || showingBigMovie)} />
       
       {/* Destaque */}
       {featuredData &&
@@ -57,9 +57,15 @@ export default () => {
       {/* Listas ... */}
       <section className='lists' style={{marginTop: -150+(window.innerWidth/30)}}>
         {movieList.map((item, key) => (
-          <MovieRow key={key} title={item.title} items={item.items} />
+          <MovieRow key={key} title={item.title} slug={item.slug} items={item.items} setMovieData={setBigMovieData} movieData={bigMovieData} setShowing={setShowingBigMovie} showing={showingBigMovie}/>
         ))}
       </section>
+      {showingBigMovie &&
+        <div className='backDrop' >
+          asdasdasd
+          <BigMovie item={bigMovieData} type={bigMovieData} setShowing={setShowingBigMovie} showing={showingBigMovie}/>
+        </div>
+      }
 
       {/* Rodapé */}
       <footer>

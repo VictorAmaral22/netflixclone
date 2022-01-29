@@ -74,7 +74,10 @@ export default {
                     info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}&append_to_response=videos`);
                     break;
                 default:
-                    info = null;
+                    info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}&append_to_response=videos`);
+                    if(info.name == null) {
+                        info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}&append_to_response=videos`);
+                    } 
                     break;
             }
         }

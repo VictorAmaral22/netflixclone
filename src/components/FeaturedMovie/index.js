@@ -24,6 +24,8 @@ export default ({item}) => {
         genres.push(item.genres[i].name);
     }
 
+    console.log("Featured completo: ",item)
+
     return (
         <section className="featured" style={{
             backgroundSize: 'cover',
