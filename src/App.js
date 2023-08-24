@@ -4,7 +4,7 @@ import './App.css'
 import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
-import BigMovie from './components/BigMovie';
+import BigMovie from './components/bigMovie';
 
 export default () => {
 

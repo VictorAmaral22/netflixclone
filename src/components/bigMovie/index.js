@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default ({item, type, setShowing, showing}) => {
+export default function BigMovie ({item, type, setShowing, showing}) {
     let firstDate = new Date(item?.first_air_date ? item?.first_air_date : item?.release_date);
     let genres = [];
     
